@@ -1,0 +1,13 @@
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td *ngIf="user.age" [ngClass]="{'overAge': (user.age &gt;= 18), 'underAge': (user.age &lt; 18)}">{{ user.age }}</td>
+      <td *ngIf="!user.age">Unknown</td>
+      <td><button (click)="removeItem(user)">X</button></td>
+    </tr>
+</table>
